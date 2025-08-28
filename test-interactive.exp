@@ -1,0 +1,16 @@
+#!/usr/bin/expect -f
+
+# Expect script to test interactive mode
+set timeout 10
+
+spawn npm start
+
+# Wait for welcome message
+expect "Welcome to the Strategy Consulting Agent"
+
+# Select Company Analysis
+send "\033\[B"
+send "\r"
+
+# Test is complete - we just needed to verify it doesn't crash
+expect eof
